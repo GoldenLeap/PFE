@@ -20,12 +20,12 @@
             <input type="text" oninput="updateCargo()" name="cargoInput" id="cargoInput">
         </div>
         <div class="group">
-            <label for="cores">Cor</label>
-            <select name="cores">
+            <label for="cardCol">Cor</label>
+            <select onchange="updateCardCol()" name="cores" id="cardCol">
                 <option selected value="cyan">Ciano</option>
-                <option value="magenta">Magenta</option>
-                <option value="blueviolet">Violeta</option>
-                <option value="rebeccapurple">Roxo</option>
+                <option value="blue">Azul</option>
+                <option value="red">Vermelho</option>
+                <option value="purple">Roxo</option>
                 <option value="pink">Rosa</option>
             </select>
         </div>

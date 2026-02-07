@@ -1,3 +1,8 @@
+:root{
+    --card-color: #00ffff;
+
+}
+
 form{
     display: flex;
     border: 2px solid black;
@@ -16,14 +21,29 @@ h1{
 
 }
 .card{
+    overflow: hidden;
     display: flex;
     flex-flow: column;
     justify-content: start;
-    align-items: center;
+    align-items: stretch;
     border: 2px solid black;
     border-radius: 30px;
     padding: 20px;
     width: 500px;
     margin: 20px;
-    background-color: cyan;
+    background-color: var(--card-color);
+}
+.card p,
+.card .nome {
+    width: 100%;
+    text-align: center;
+}
+
+
+.nome{
+    max-width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
 }
