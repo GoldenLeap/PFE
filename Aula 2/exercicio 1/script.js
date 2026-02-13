@@ -10,5 +10,6 @@ function celsiusToFahrenheit (){
             document.body.style.backgroundColor = "lightskyblue"
         }
     
+    document.getElementById('f').textContent = fahrenheit.toString()
 
 }

@@ -4,7 +4,7 @@ const quantChar = document.getElementById("quantChar");
 function formatNom(){
     let numVal = nomeElement.value;
     numVal = numVal.trim().toUpperCase();
-    temp = numVal.split(" ").join("");
+    temp = numVal.split(" ");
     console.log(temp.length);
     quantChar.innerHTML = temp.length;
 
