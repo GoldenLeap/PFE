@@ -1,5 +1,4 @@
-let agendaHorarios = [8, 12, 25, 15, -
-2, 20]
+let agendaHorarios = [8, 12, 25, 15, -2, 20]
 let horariosValidos = []
 let cont = 0;
 agendaHorarios.forEach(e=>{
@@ -10,6 +9,5 @@ agendaHorarios.forEach(e=>{
     }else{
         alert(`O horario ${e} é invalido.`);
     }
-
 })
 alert(`Horarios validos: ${cont} - ${horariosValidos}`)
