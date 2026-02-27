@@ -1,0 +1,69 @@
+    img{
+        width:  30vh;
+        height: auto;
+    }
+
+@media (min-width: 1200px) {
+    img{
+        width:  30vh;
+        height: auto;
+        animation: t 4s ease-in-out both alternate   infinite;
+    }
+}
+
+@media (min-width: 801px)and (max-width: 1000px){
+    img{
+        width: 20vh;
+        border: 2px solid black;
+        border-radius: 20px;
+        animation: t 4s ease-in-out both alternate   infinite;
+
+    }
+    body{
+        background-image: url('ImgMedia/pony.webp');
+
+    } 
+}
+
+@media (min-width: 601px) and (max-width: 800px) {
+    img{
+        width: 10vh;
+        border: 2px  solid black;
+        animation: t 4s ease-in-out both alternate   infinite;
+    }
+    body{
+        background-image: url('ImgMedia/lula.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media (max-width:  600px){
+    img{
+        width: 8vh; 
+        border: 2px solid black;
+        
+
+    }
+
+    body{
+        background-image: url('ImgMedia/dra.jpg');
+        background-size: contain;
+        background-repeat:round;
+    }
+
+}
+
+@keyframes t
+{
+    from{ 
+        transform: rotateY(0deg) rotateX(0deg) scale3D(1, 1, 1) perspective(0);
+        filter: none;
+    }
+    to{
+        transform: rotateY(360deg) rotateX(100deg) rotateZ(1deg) scale3D(4, 2, 4) translateY(100vh) translateX(100vh);
+        filter: grayscale();
+        
+    }
+
+}
