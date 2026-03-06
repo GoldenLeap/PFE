@@ -1,0 +1,227 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #fafafa;
+    color: #262626;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr; 
+    justify-content: center;
+    gap: 20px;
+    min-height: 100vh;
+}
+
+aside {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 20px;
+    border-right: 1px solid #dbdbdb;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.links {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.links li {
+    padding: 12px 0;
+}
+
+.links li a {
+    text-decoration: none;
+    color: #262626;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: font-weight 0.2s;
+}
+
+.links li a:hover {
+    font-weight: bold;
+}
+
+main {
+    padding: 20px 0;
+    max-width: 600px;
+}
+
+.stories {
+    display: flex;
+    gap: 15px;
+    padding: 10px 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none; 
+}
+
+.stories-avatar{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-size: .9rem;
+
+}
+
+
+.stories img.avatar {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #d62976; 
+    padding: 2px;
+    cursor: pointer;
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.avatar {
+    width: 32px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.right-side a {
+    text-decoration: none;
+    color: #0095f6;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.content img {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #efefef;
+}
+
+.interact {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.engage {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.engage p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.engage i:hover, .bookmark i:hover {
+    color: #8e8e8e;
+}
+
+.desc {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.desc strong {
+    margin-right: 5px;
+}
+
+
+.suggestion {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+}
+
+.follow, .profile{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    gap: 20px;
+}
+
+
+.follow::after {
+    content: "Seguir";
+    margin-left: auto;
+    color: #0095f6;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.search{
+    display: flex;
+    justify-content: space-between;
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+
+.user-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+
+.content video{
+    width:  100%;
+}
+
+.title{
+    font-size: 24px;
+    text-align: center;
+
+}
+
+@media (max-width: 1100px) {
+    .suggestion { display: none; }
+    .container { grid-template-columns: 80px 600px; }
+    .links span { display: none; } 
+}
+
+.user-profile h3{
+    font-size: 1.2rem;
+
+}
