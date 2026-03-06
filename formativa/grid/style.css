@@ -1,0 +1,94 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main";
+  height: 100vh;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  position: sticky;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 100;
+  top: 0;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex: 0 1 600px;
+  margin: 0 40px;
+}
+.search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+}
+
+aside {
+  grid-area: sidebar;
+  padding: 12px 0;
+  overflow-y: auto;
+}
+
+aside ul {
+  list-style: none;
+}
+aside li {
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+main {
+  grid-area: main;
+  padding: 24px;
+  overflow-y: auto;
+}
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+.video {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.video-details {
+  display: flex;
+  gap: 12px;
+}
+.video-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.channel-name,
+.video-meta {
+  font-size: 14px;
+  color: #606060;
+}
