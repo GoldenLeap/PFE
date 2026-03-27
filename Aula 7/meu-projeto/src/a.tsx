@@ -45,7 +45,7 @@ export function PlacarFutebol({nomeTimeA, nomeTimeB}){
                 </div>
                 <h1 style={{margin: '0 20px'}}>X</h1>
                                 <div>
-                    <h3>{nomeTimeA}</h3>
+                    <h3>{nomeTimeB}</h3>
                     <h1 style={{fontSize: '48px', margin: '10px 0'}}>{golsB}</h1>
                     <button onClick={()=>setGolsB(golsB +1)} style={botaoEstilo}>GOL</button>
                 </div>
