@@ -1,3 +1,4 @@
+// Dados iniciais
 const sensoresIniciais = [
   { id: 1, nome: "Sensor Galpão A", tipo: "Temperatura", valor: 24.5, unidade: "°C", status: "normal" },
   { id: 2, nome: "Sensor Estufa 02", tipo: "Umidade", valor: 88.0, unidade: "%", status: "critico" },
@@ -7,56 +8,91 @@ const sensoresIniciais = [
   { id: 6, nome: "Sensor Caldeira", tipo: "Temperatura", valor: 98.4, unidade: "°C", status: "critico" }
 ];
 
-function renderizarDashboard(lista_sensores) {
-  var dashBoard = document.getElementById("card-board");
+// Estado da aplicação
+let sensores = [...sensoresIniciais];
 
-  dashBoard.innerHTML = "";
+// Elementos do DOM
+const cardBoard = document.getElementById("card-board");
+const filterSelect = document.getElementById("filter-type");
+const reloadBtn = document.getElementById("reload");
+const lastUpdateSpan = document.getElementById("last-update");
 
-  lista_sensores.forEach(element => {
-    let div = document.createElement("div");
-    let nome = document.createElement("h3");
-    let tipo = document.createElement("p");
-    let data = document.createElement("p");
-    
-    div.classList.add("card");
-    nome.textContent = element.nome;
-    tipo.textContent = element.tipo;
-    data.textContent = `${element.valor} ${element.unidade}`;
+// Função para renderizar o Dashboard dinamicamente
+function renderizarDashboard(listaSensores) {
+  cardBoard.innerHTML = "";
 
-    let status = document.createElement("div");
-    let status_val = document.createElement("p");
-    status.classList.add("status_sensor");
+  listaSensores.forEach(sensor => {
+    // Criar o container do card
+    const card = document.createElement("div");
+    card.classList.add("card");
 
-    let dot = document.createElement("div");
-    dot.classList.add("dot");
-
-    switch (element.status) {
-      case "normal":
-        dot.classList.add("ok");
-        status_val.textContent = "Normal";
-        status_val.classList.add("ok");
-        break;
-      case "critico":
-        dot.classList.add("error");
-        status_val.textContent = "Crítico";
-        status_val.classList.add("error");
-        break;
+    if (sensor.status === "critico") {
+      card.classList.add("card-alerta");
     }
+    // Estrutura interna via template literals `${val}`
+    card.innerHTML = `
+      <h3>${sensor.nome}</h3>
+      <p class="valor">${sensor.valor.toFixed(1)} ${sensor.unidade}</p>
+      <p class="tipo">Tipo: ${sensor.tipo}</p>
+      <div class="connection-status">
+        <div class="dot ${sensor.status === 'critico' ? 'error' : 'ok'}"></div>
+        <span>${sensor.status.toUpperCase()}</span>
+      </div>
+    `;
 
-    status.appendChild(dot);
-    status.appendChild(status_val);
-
-    div.appendChild(nome);
-    div.appendChild(tipo);
-    div.appendChild(data);
-    div.appendChild(status);
-
-    dashBoard.appendChild(div);
+    cardBoard.appendChild(card);
   });
+
+  atualizarTimestamp();
 }
 
-document.getElementById("reload").onclick = () => {
-  renderizarDashboard(sensoresIniciais);
-};
+// Função para atualizar o footer com hora atual
+function atualizarTimestamp() {
+  const agora = new Date();
+  const horaFormatada = agora.toTimeString().split(' ')[0];
+  lastUpdateSpan.textContent = horaFormatada;
+}
 
-renderizarDashboard(sensoresIniciais);
+// Lógica de Filtros
+filterSelect.addEventListener("change", (e) => {
+  const tipoSelecionado = e.target.value;
+  
+  if (tipoSelecionado === "Todos") {
+    renderizarDashboard(sensores);
+  } else {
+    const listaFiltrada = sensores.filter(sensor => sensor.tipo === tipoSelecionado);
+    renderizarDashboard(listaFiltrada);
+  }
+});
+
+// Simulação de alteração de dados em tempo real
+function simularAtualizacaoDados() {
+  sensores = sensores.map(sensor => {
+    // Altera o valor levemente entre -1.5 e +1.5
+    const variacao = (Math.random() * 3) - 1.5;
+    let novoValor = sensor.valor + variacao;
+
+    // Evitar valores absurdos
+    if (sensor.tipo === "Temperatura") {
+      sensor.status = novoValor > 35 ? "critico" : "normal";
+    }
+    if (sensor.tipo === "Umidade"){
+      if (sensor.novoValor < 0) sensor.novoValor = 0;
+      if (sensor.novoValor > 100) sensor.novoValor = 100;
+    }
+
+    return {
+      ...sensor,
+      valor: novoValor
+    };
+  });
+
+  filterSelect.dispatchEvent(new Event('change'));
+}
+
+// Simula atualização a cada 30 segundos
+reloadBtn.addEventListener("click", simularAtualizacaoDados);
+setInterval(simularAtualizacaoDados, 30000);
+
+// Inicialização da Página
+renderizarDashboard(sensores);

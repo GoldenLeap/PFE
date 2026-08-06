@@ -1,39 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revisao 1</title>
+    <title>Dashboard de Sensores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <img src="https://placehold.co/200x40" alt="Logo">
-        <h1>Titulo Dashboard</h1>
-        <div class='dot ok'></div>
+        <div class="logo-area">
+            <img src="https://placehold.co/200x40" alt="Logo">
+            <h1>Dashboard Industrial</h1>
+        </div>
+        <div class="connection-status">
+            <div class="dot ok"></div>
+            <span>Online</span>
+        </div>
     </header>
+
     <main>
         <section class="filter">
             <button id="reload">Atualizar dados</button>
-            <p>Filtrar por tipo</p>
-            <select name="" id="">
-                <option value="">Temperatura</option>
-                <option value="">Umidade</option>
-                <option value="">Pressão</option>
+            <label for="filter-type">Filtrar por tipo:</label>
+            <select id="filter-type">
+                <option value="Todos">Todos</option>
+                <option value="Temperatura">Temperatura</option>
+                <option value="Umidade">Umidade</option>
+                <option value="Pressão">Pressão</option>
             </select>
         </section>
+
         <section class="grid-cards" id="card-board">
-            <div class="card">
-                <h3 id="nome">Nome</h3>
-                <p id="val">Data:</p>
-                <p id="data">Num</p>
-                <div class="status_sensor">
-                    <div class="dot ok"></div><span>Status sensor</span>
-                </div>
-            </div>
+            <!--  cards  injetados dinamicamente pelo Javascript -->
         </section>
     </main>
-    <footer>&copy;2026 todos os direitos reservados</footer>
+
+    <footer>
+        <p>&copy; 2026 Todos os direitos reservados.</p>
+        <p>Última atualização: <span id="last-update">-</span></p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
