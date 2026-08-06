@@ -71,14 +71,19 @@ function simularAtualizacaoDados() {
     // Altera o valor levemente entre -1.5 e +1.5
     const variacao = (Math.random() * 3) - 1.5;
     let novoValor = sensor.valor + variacao;
+    
 
     // Evitar valores absurdos
     if (sensor.tipo === "Temperatura") {
       sensor.status = novoValor > 35 ? "critico" : "normal";
     }
     if (sensor.tipo === "Umidade"){
-      if (sensor.novoValor < 0) sensor.novoValor = 0;
-      if (sensor.novoValor > 100) sensor.novoValor = 100;
+      novoValor = clamp(novoValor, 0, 100);
+      sensor.valor = clamp(sensor.valor, 0, 100);
+    }
+    if(sensor.tipo === "Pressão"){
+       novoValor = novoValor <= 0? 0: novoValor;
+       sensor.valor = sensor.valor <= 0? 0: sensor.valor;
     }
 
     return {
@@ -96,3 +101,10 @@ setInterval(simularAtualizacaoDados, 30000);
 
 // Inicialização da Página
 renderizarDashboard(sensores);
+
+
+function clamp(val, min, max){
+  if(val < min) val = min;
+  if(val > max) val = max;
+  return val;
+}
