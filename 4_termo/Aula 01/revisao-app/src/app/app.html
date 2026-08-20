@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revisão App</title>
+</head>
+<body class="min-h-full bg-slate-50 text-slate-900 antialiased flex flex-col justify-between">
+
+  <main class="flex-1 container mx-auto px-4 py-6 space-y-8">
+    <section>
+      <app-carousel>
+        <div #carouselCard class="p-4 bg-white rounded shadow">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSflpkX6jNfM9UPt8SxQ2SWbSos7SvITccNZROoR6bHTEhELV6U2UThsCVd&s=10" alt="">
+
+        </div>
+        <div #carouselCard class="p-4 bg-white rounded shadow">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQliU49tALVqMnG0z67JxuWjf5DMmbxBYMWLVkmNor5JEB82DuYyd0rn30H&s=10" alt="" srcset="">
+        </div>
+        <div #carouselCard class="p-4 bg-white rounded shadow">
+          <img src="https://external-preview.redd.it/venha-comer-o-renat%C3%A3o-de-4-o-lanche-completo-v0-MGJiZnU5MHJqa2JiMWPvHJsaYojTiQ6yDmo0-1SSXhFA0KX4rMzt5xfzbJT8.png?width=640&crop=smart&format=pjpg&auto=webp&s=cf835feedba38f34279cb2f7d4d38c68630bccf0" alt="" srcset="">
+        </div>
+      </app-carousel>
+    </section>
+
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+      <app-card>
+        <div card-head class="font-semibold text-slate-800">Título 1</div>
+        <p card-body class="text-slate-600">Conteúdo principal do primeiro card.</p>
+        <p card-foot class="text-xs text-slate-500">Rodapé 1</p>
+      </app-card>
+
+      <app-card>
+        <div card-head class="font-semibold text-slate-800">Título 2</div>
+        <p card-body class="text-slate-600">Conteúdo principal do segundo card.</p>
+        <p card-foot class="text-xs text-slate-500">Rodapé 2</p>
+      </app-card>
+
+      <app-card>
+        <div card-head class="font-semibold text-slate-800">Título 3</div>
+        <p card-body class="text-slate-600">Conteúdo principal do terceiro card.</p>
+        <p card-foot class="text-xs text-slate-500">Rodapé 3</p>
+      </app-card>
+    </section>
+  </main>
+
+  <app-custom-footer 
+    [owner]="'Cuzao lanches'" 
+    [rightsText]="'Usa samerda.'" 
+    [version]="'2.4.1'">
+  </app-custom-footer>
+
+</body>
+</html>

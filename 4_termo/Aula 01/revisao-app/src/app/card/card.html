@@ -1,0 +1,15 @@
+<div class="flex flex-col h-full bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+  
+  <div class="p-5 border-b border-slate-100 [&:not(:has(*))]:hidden">
+    <ng-content select="[card-head]"></ng-content>
+  </div>
+
+  <div class="p-5 flex-1 [&:not(:has(*))]:hidden">
+    <ng-content select="[card-body]"></ng-content>
+  </div>
+
+  <div class="p-4 bg-slate-50 border-t border-slate-100 [&:not(:has(*))]:hidden">
+    <ng-content select="[card-foot]"></ng-content>
+  </div>
+
+</div>

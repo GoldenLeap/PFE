@@ -1,0 +1,15 @@
+<div class="gallery">
+    <div class="cards">
+        <ng-content></ng-content>
+    </div>
+    
+    <div class="actions">
+        @if (elementId > 0) {
+            <button (click)="anterior()" class="prev">Anterior</button>
+        }
+        
+        @if (elementId < listLength - 1) {
+            <button (click)="proximo()" class="next">Proximo</button>
+        }
+    </div>
+</div>
