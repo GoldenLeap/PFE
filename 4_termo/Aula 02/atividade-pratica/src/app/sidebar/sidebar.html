@@ -1,0 +1,31 @@
+<aside class="flex h-screen  w-64 flex-col justify-between border-r border-stone-200 bg-stone-50 p-4">
+  <div class="flex flex-col gap-6">
+    <div class="px-3 text-lg font-bold text-stone-900">
+      SuaMarca
+    </div>
+
+    <nav aria-label="Navegação Principal">
+      <ul class="flex flex-col gap-1">
+        @for (item of menuItems; track item.label) {
+          <li>
+            <a
+              [href]="item.path"
+              class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-200 hover:text-stone-900"
+            >
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+
+  <div class="border-t border-stone-200 pt-4">
+    <a
+      href="#perfil"
+      class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-200 hover:text-stone-900"
+    >
+      <span>Perfil / Configurações</span>
+    </a>
+  </div>
+</aside>

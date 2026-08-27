@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="h-full p-0 m-0 antialiased overflow-hidden">
+
+<div class="flex h-screen w-full flex-col box-border">
+    <app-header class="block w-full shrink-0 z-50"></app-header>
+
+    <div class="flex flex-1 overflow-hidden">
+      
+      <app-sidebar class="no-scrollbar block w-64 shrink-0 h-full overflow-y-auto border-r border-stone-800"></app-sidebar>
+
+      <main class="flex flex-1 flex-col items-center justify-between overflow-y-auto px-4 py-2">
+        
+        <div class="w-full flex flex-col items-center gap-8">
+          <app-hero-banner class="block w-full"></app-hero-banner>
+
+          <app-card-product class="block w-full max-w-4xl px-4">
+            <app-card>
+              <div card-head class="font-semibold">
+                Título
+              </div>
+              <p card-body>Conteúdo card</p>
+              <p card-footer class="text-xs">Conteúdo footer</p>
+            </app-card>
+            <app-card>
+              <div card-head class="font-semibold">
+                Título
+              </div>
+              <p card-body>Conteúdo card</p>
+              <p card-footer class="text-xs">Conteúdo footer</p>
+            </app-card>
+            <app-card>
+              <div card-head class="font-semibold">
+                Título
+              </div>
+              <p card-body>Conteúdo card</p>
+              <p card-footer class="text-xs">Conteúdo footer</p>
+            </app-card>
+          </app-card-product>
+        </div>
+
+      </main>
+
+    </div>
+    <app-footer class="block w-full mt-1"
+    [owner]="'Todos'" 
+    [rightsText]="'Nenhum direito reservado.'" 
+    [version]="'2.4.6'">
+  </app-footer>
+
+  </div>
+
+</body>
+</html>

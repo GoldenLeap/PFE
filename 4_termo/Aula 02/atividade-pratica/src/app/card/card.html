@@ -1,0 +1,16 @@
+<div class="flex flex-col h-full rounded-xl border border-stone-800/40 shadow-sm hover:shadow-md transition-all duration-200">
+  
+  <div class="p-5 border-b border-stone-800/40 font-semibold">
+    <ng-content select="[card-head], [card-header]"></ng-content>
+  </div>
+
+
+  <div class="p-5 flex-1 text-sm opacity-90 leading-relaxed">
+    <ng-content select="[card-body]"></ng-content>
+  </div>
+
+  <div class="p-5 border-t border-stone-800/40 text-xs opacity-75">
+    <ng-content select="[card-footer]"></ng-content>
+  </div>
+
+</div>
